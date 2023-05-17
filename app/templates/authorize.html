@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Bank</title>
+    <style>
+        body {
+            font-family: Roboto;
+        }
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 300px;
+        }
+        .form-actions {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+        .form-btn {
+            width: 100%;
+        }
+        .form-input {
+            margin-top: 5px;
+        }
+        .form-container {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form class="auth-form">
+            <h1 style="text-align:center">Authorization</h1>
+            <p style="color:grey">{{ message }}</p>
+            <input type="text" class="form-input">
+            <input type="password" class="form-input">
+            <div class="form-actions">
+                <button class="form-btn">Log In</button>
+                <button class="form-btn">Sign Up</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
