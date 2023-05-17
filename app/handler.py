@@ -13,6 +13,8 @@ class Handler:
     def execute(self) -> bytes:
         rq: Request = pickle.loads(self._data)
 
+        print(rq)
+
         if rq.action == Actions.REGISTER.value:
             response = self._perform_register_action(rq)
         elif not self._storage.authenticate(rq.username, rq.password):
