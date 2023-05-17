@@ -1,6 +1,4 @@
-from sqlite3 import IntegrityError
-
-from storage import Storage
+from storage import Storage, UserAlreadyExists
 
 
 storage = Storage()
@@ -27,7 +25,7 @@ def test_duplicate_user():
         storage.create_user('testname', 'password')
         assert False
     except Exception as e:
-        assert isinstance(e, IntegrityError)
+        assert isinstance(e, UserAlreadyExists)
 
 
 def test_get_user_balance():
