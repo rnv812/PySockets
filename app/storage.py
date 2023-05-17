@@ -22,8 +22,8 @@ class Storage:
         hashed_password = Storage._hash_password(password)
 
         with self._get_connection() as connection:
-            connection.execute(query, (username, hashed_password, 0.0))
             try:
+                connection.execute(query, (username, hashed_password, 0.0))
                 connection.commit()
             except IntegrityError:
                 raise UserAlreadyExists()

@@ -10,6 +10,7 @@ PORT = 8080
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
     sock.bind((HOST, PORT))
 
+    print(f"Listening on {HOST}:{PORT}")
     sock.listen(10)
 
     while True:

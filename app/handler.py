@@ -13,17 +13,16 @@ class Handler:
     def execute(self) -> bytes:
         rq: Request = pickle.loads(self._data)
 
-        if not self._storage.authenticate(rq.username, rq.password):
+        if rq.action == Actions.REGISTER.value:
+            response = self._perform_register_action(rq)
+        elif not self._storage.authenticate(rq.username, rq.password):
             response = Response(
                 status=False,
                 message=Messages.INVALID_CREDENTIALS.value,
                 content=''
             )
         else:
-            if rq.action == Actions.REGISTER:
-                response = self._perform_register_action(rq)
-            else:
-                response = self._perform_balance_action(rq)
+            response = self._perform_balance_action(rq)
 
         return pickle.dumps(response)
 
