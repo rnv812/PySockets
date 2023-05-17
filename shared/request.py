@@ -3,9 +3,10 @@ from enum import Enum
 
 
 class Actions(Enum):
-    GET_BALANCE = 0
-    WITHDRAW = 1
-    DEPOSIT = 2
+    REGISTER = 0
+    GET_BALANCE = 1
+    WITHDRAW = 2
+    DEPOSIT = 3
 
 
 @dataclass
@@ -13,3 +14,4 @@ class Request:
     action: int
     username: str
     password: str
+    content: str

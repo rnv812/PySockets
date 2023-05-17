@@ -1,6 +1,10 @@
 import hashlib
 
-from sqlite3 import connect, Connection
+from sqlite3 import connect, Connection, IntegrityError
+
+
+class UserAlreadyExists(Exception):
+    pass
 
 
 class Storage:
@@ -19,7 +23,10 @@ class Storage:
 
         with self._get_connection() as connection:
             connection.execute(query, (username, hashed_password, 0.0))
-            connection.commit()
+            try:
+                connection.commit()
+            except IntegrityError:
+                raise UserAlreadyExists()
 
     def authenticate(self, username: str, password: str) -> bool:
         query = """SELECT * FROM users WHERE username=? AND password=?"""
