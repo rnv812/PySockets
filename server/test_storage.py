@@ -30,6 +30,27 @@ def test_duplicate_user():
         assert isinstance(e, IntegrityError)
 
 
+def test_get_user_balance():
+    balance = storage.get_balance('testname')
+    print(type(balance))
+    print(balance)
+    assert balance == 0
+
+
+def test_update_user_balance():
+    storage.update_balance('testname', 20)
+    balance = storage.get_balance('testname')
+    assert balance == 20
+
+    storage.update_balance('testname', balance + 30)
+    balance = storage.get_balance('testname')
+    assert balance == 50
+
+    storage.update_balance('testname', balance - 10)
+    balance = storage.get_balance('testname')
+    assert balance == 40
+
+
 def test_delete_user():
     storage.delete_user('testname')
     assert not storage.authenticate('testname', 'password')
