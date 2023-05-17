@@ -1,7 +1,7 @@
 import pickle
 
-from ..shared.request import Actions, Request
-from ..shared.response import Response, Messages
+from request import Actions, Request
+from response import Response, Messages
 from storage import Storage, UserAlreadyExists
 
 
