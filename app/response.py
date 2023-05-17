@@ -8,6 +8,7 @@ class Messages(Enum):
     INVALID_CREDENTIALS = "Invalid username or password"
     BALANCE_UPDATED = "Balance updated"
     BALANCE_TOO_LOW = "Balance is too low"
+    PERFORMED = "Performed"
 
 
 @dataclass
