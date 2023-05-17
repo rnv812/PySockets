@@ -4,7 +4,6 @@ from handler import Handler
 
 
 HOST = "127.0.0.1"  # run on local machine
-
 PORT = 8080
 
 
