@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 
 @dataclass
-class Request:
+class Response:
     status: bool
     message: str
     content: str
