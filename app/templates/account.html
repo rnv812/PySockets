@@ -17,14 +17,12 @@
             justify-content: center;
         }
         .box {
-            width: 800px;
-            height: 500px;
             background-color: aliceblue;
+            padding: 50px;
         }
         .panel {
             display: flex;
             justify-content: center;
-            margin-top: 5%;
         }
         .hint {
             display: flex;
@@ -42,7 +40,7 @@
                 <p style="color:grey">{{ message }}</p>
             </div> 
             <div class="panel">
-                <input type="text" placeholder="Amount">
+                <input type="number" placeholder="Amount">
                 <button type="button">Withdraw</button>
                 <button type="button">Deposit</button>
             </div>
